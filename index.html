@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ID Verification DApp</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="https://unpkg.com/@metamask/detect-provider/dist/detect-provider.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+    <style>
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background: url('id-check.png') no-repeat center center fixed;
+            background-size: cover;
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="connectMetamask">
+            <p id="connectWalletMessage">Please connect your MetaMask wallet</p>
+            <button id="connectWallet">Connect Wallet</button>
+        </div>
+    </header>
+
+    <div id="menuIcon">☰</div>
+    <div id="sidebar">
+        <a ></a>
+        <a href="#" id="userLink">User Actions</a>
+        <a href="#" id="adminLink" style="display: none;">Admin Actions</a>
+        <a href="#" id="registeredLink">Registered Users</a>
+    </div>
+    <div id="darkOverlay"></div>
+
+    <main id="appContent" style="display: none;">
+        <section id="userSection">
+            <h2>User Actions</h2>
+            <div>
+                <input type="text" id="userName" placeholder="Enter Name" />
+                <input type="text" id="userHash" placeholder="Enter Hash" />
+                <button id="registerUser">Register User</button>
+            </div>
+        </section>
+
+        <section id="adminSection">
+            <h2>Admin Actions</h2>
+            <div>
+                <input type="text" id="verifyAddress" placeholder="User Address to Verify" />
+                <button id="verifyUser">Verify User</button>
+            </div>
+            <div>
+                <input type="text" id="removeAddress" placeholder="User Address to Remove" />
+                <button id="removeUser">Remove User</button>
+            </div>
+            <div>
+                <input type="text" id="newAdminAddress" placeholder="New Admin Address" />
+                <button id="assignAdmin">Assign Admin</button>
+            </div>
+        </section>
+
+        <section id="userList">
+            <h2>Registered Users</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Address</th>
+                        <th>Name</th>
+                        <th>Hash</th>
+                        <th>Verified</th>
+                    </tr>
+                </thead>
+                <tbody id="userTable"></tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
